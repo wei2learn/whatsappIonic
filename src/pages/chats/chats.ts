@@ -1,9 +1,7 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import * as moment from 'moment'
-import { Observable } from 'rxjs'
+import { Component, OnInit } from '@angular/core';
+import { Observable } from "rxjs";
 import { Chat } from "api/models/whatsapp-models";
-import { Chats, Messages } from "api/collections/whatsapp-collections";
+import { Chats, Messages } from "../../../api/collections/whatsapp-collections";
 
 /*
   Generated class for the Chats page.
@@ -14,13 +12,13 @@ import { Chats, Messages } from "api/collections/whatsapp-collections";
 @Component({
   templateUrl: 'chats.html'
 })
-export class ChatsPage {
-  chats: Observable<any[]>;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // this.chats = this.findChats();
+export class ChatsPage implements OnInit {
+  chats;
+ 
+  constructor() {
+ 
   }
-
+ 
   ngOnInit() {
     this.chats = Chats
       .find({})
@@ -89,12 +87,12 @@ export class ChatsPage {
 //     ]);
 //   }
 
-  removeChat(chat: Chat): void {
-    this.chats = this.chats.map<Chat[]>(chatsArray => {
-      const chatIndex = chatsArray.indexOf(chat);
-      chatsArray.splice(chatIndex, 1);
-      return chatsArray;
-    });
-  }  
+  // removeChat(chat: Chat): void {
+  //   this.chats = this.chats.map<Chat[]>(chatsArray => {
+  //     const chatIndex = chatsArray.indexOf(chat);
+  //     chatsArray.splice(chatIndex, 1);
+  //     return chatsArray;
+  //   });
+  // }  
 
 }
