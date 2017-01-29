@@ -23,12 +23,11 @@
 <ion-content class="chats-page-content">
   <ion-list class="chats">
     <ion-item-sliding *ngFor="let chat of chats | async">
-      <button ion-item class="chat">
+      <button ion-item class="chat" (click)="showMessages(chat)">
         <img class="chat-picture" [src]="chat.picture">
  
         <div class="chat-info">
-          <h2 class="chat-title">{{chat.title}}</h2>
- 
+          <h2 class="chat-title">{{chat.title}} </h2>
           <span *ngIf="chat.lastMessage" class="last-message">
             <p class="last-message-content">{{chat.lastMessage.content}}</p>
             <span class="last-message-timestamp">{{chat.lastMessage.createdAt | amCalendar }}</span>
